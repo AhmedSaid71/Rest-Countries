@@ -5,8 +5,10 @@ const MainLayout = () => {
   return (
     <>
       <Navbar />
-      <main>
-        <Outlet />
+      <main className="bg-dark-gray">
+        <section className="container">
+          <Outlet />
+        </section>
       </main>
     </>
   );
