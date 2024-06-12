@@ -4,11 +4,12 @@ import { MainLayout } from "./layouts";
 import { Country, Home } from "./pages";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { Loader } from "./components";
 
 const router = createBrowserRouter([
   {
     element: (
-      <Suspense>
+      <Suspense fallback={<Loader />}>
         <MainLayout />
       </Suspense>
     ),

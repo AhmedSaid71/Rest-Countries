@@ -6,7 +6,7 @@ const MainLayout = () => {
     <>
       <Navbar />
       <main className="bg-dark-gray">
-        <section className="container">
+        <section className="container pt-6 pb-24">
           <Outlet />
         </section>
       </main>
