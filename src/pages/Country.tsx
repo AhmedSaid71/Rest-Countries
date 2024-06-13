@@ -1,22 +1,24 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import { GoArrowLeft } from "react-icons/go";
 
-import { useCountry } from "../hooks";
+import { useCountry, useCountryBorders } from "../hooks";
 import { Loader } from "../components";
 import { Currencies, Languages } from "../types";
 import { formatNumberWithCommas } from "./../utils/helpers";
 
 const Country = () => {
   const { country, isPending } = useCountry();
+  const { borders, isPending: isPendingBorders } = useCountryBorders(
+    country?.borders.join(",") as string
+  );
   const navigate = useNavigate();
-
   const handleGoBack = () => {
     navigate(-1);
   };
 
-  if (isPending) return <Loader />;
+  if (isPending || isPendingBorders) return <Loader />;
   return (
     <section className="flex gap-8 flex-col mt-8">
       <div>
@@ -36,7 +38,7 @@ const Country = () => {
         <div className="flex-1 flex flex-col gap-4 sm:pt-10">
           <h1 className=" text-3xl font-extrabold">{country?.name?.common}</h1>
           <div className="flex flex-col lg:flex-row gap-16">
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 flex-1">
               <div>
                 <span className="bold">Native Name: </span>
                 {country?.name?.common}
@@ -58,7 +60,7 @@ const Country = () => {
                 {country?.capital}
               </div>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 flex-1">
               <div>
                 <span className="bold">Top Level Domain: </span>
                 {country?.tld}
@@ -85,6 +87,18 @@ const Country = () => {
                   )
                 )}
               </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h2>Border Countries:</h2>
+            <div className="flex gap-2 flex-wrap">
+              {borders?.map((border) => (
+                <Link to={`/country/${border.name.common.toLowerCase()}`}>
+                  <div className="py-2 px-4 shadow-md cursor-pointer flex items-stretch min-w-fit ">
+                    {border.name.common}
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>

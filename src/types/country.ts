@@ -1,8 +1,6 @@
 export interface Country {
   flags: { png: string; svg: string; alt: string };
-  name: {
-    common: string;
-  };
+  name: Name;
   population: number;
   region: string;
   subregion: string;
@@ -12,6 +10,7 @@ export interface Country {
   currencies: Currencies;
   languages: Languages;
   borders: string[];
+  cca3: string;
 }
 export interface Currencies {
   [key: string]: Currency;
@@ -22,4 +21,11 @@ export interface Currency {
 }
 export interface Languages {
   [key: string]: string;
+}
+export interface Name {
+  common: string;
+  official: string;
+}
+export interface Borders {
+  name: Name;
 }
