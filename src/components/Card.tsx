@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Country } from "../types/country";
+import { formatNumberWithCommas } from "../utils/helpers";
 
 const Card = ({ country }: { country: Country }) => {
   return (
@@ -15,7 +16,7 @@ const Card = ({ country }: { country: Country }) => {
           <div className="flex flex-col gap-1">
             <div>
               <span className=" font-bold">Population: </span>
-              {country.population}
+              {formatNumberWithCommas(country.population)}
             </div>
             <div>
               <span className=" font-bold">Region: </span>

@@ -13,13 +13,13 @@ export interface Country {
   languages: Languages;
   borders: string[];
 }
-interface Currencies {
+export interface Currencies {
   [key: string]: Currency;
 }
-interface Languages {
-  [key: string]: string;
-}
-interface Currency {
+export interface Currency {
   name: string;
   symbol: string;
+}
+export interface Languages {
+  [key: string]: string;
 }

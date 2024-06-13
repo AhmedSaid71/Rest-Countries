@@ -10,8 +10,11 @@ body {
   padding-inline: 20px;
   margin-inline: auto;
 }
-
-/* loader */
+@layer components {
+  .bold {
+    @apply font-bold;
+  }
+} /* loader */
 .loader {
   margin: 4.8rem auto;
   width: 2.4rem;
