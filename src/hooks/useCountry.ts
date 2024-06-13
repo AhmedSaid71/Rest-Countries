@@ -13,6 +13,5 @@ export function useCountry() {
     queryKey: ["country", countryName],
     queryFn: () => getCountry(countryName as string),
   });
-
   return { isPending, error, country };
 }
