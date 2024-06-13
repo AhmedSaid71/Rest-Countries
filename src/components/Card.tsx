@@ -8,7 +8,7 @@ const Card = ({ country }: { country: Country }) => {
         <img
           src={country.flags.png}
           alt={country.name.common}
-          className=" w-full min-h-[200px] sm:min-h-[160px] max-h-[160px] rounded-t"
+          className=" w-full min-h-[160px] max-h-[160px] rounded-t"
         />
         <div className=" pt-2 pb-10 px-5 flex flex-col gap-4">
           <h3 className="font-bold text-lg">{country.name.common}</h3>

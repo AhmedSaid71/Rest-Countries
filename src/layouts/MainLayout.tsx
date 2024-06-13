@@ -5,7 +5,7 @@ const MainLayout = () => {
   return (
     <>
       <Navbar />
-      <main className="bg-dark-gray">
+      <main className="bg-dark-gray min-h-[88.4dvh]">
         <section className="container pt-6 pb-24">
           <Outlet />
         </section>
