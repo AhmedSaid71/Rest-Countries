@@ -3,8 +3,11 @@ import { Borders, Country } from "../types/country";
 
 const BASE_URL = "https://restcountries.com/v3.1";
 
-export const getCountries = async (): Promise<Country[]> => {
-  const { data } = await axios.get(`${BASE_URL}/all`);
+export const getCountries = async (region?: string): Promise<Country[]> => {
+  let query;
+  if (region) query = `${BASE_URL}/region/${region}`;
+  else query = `${BASE_URL}/all`;
+  const { data } = await axios.get(query);
   return data;
 };
 

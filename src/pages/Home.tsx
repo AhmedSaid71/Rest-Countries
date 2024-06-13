@@ -1,21 +1,26 @@
+import { useState } from "react";
 import { Filter, Loader, Card } from "../components";
 import { useCountries } from "../hooks";
 
 const Home = () => {
-  const { isPending, countries } = useCountries();
-  if (isPending) return <Loader />;
+  const [region, setRegion] = useState("");
+  const { isPending, countries } = useCountries(region);
   return (
     <section className="flex flex-col gap-8 min-h-dvh">
       <div className="flex flex-col sm:flex-row justify-between items-center">
-        <div>SearchBar</div>
+        <div>search Bar</div>
         <div>
-          <Filter />
+          <Filter region={region} setRegion={setRegion} loading={isPending} />
         </div>
       </div>
       <div className="list">
-        {countries?.map((country) => (
-          <Card country={country} key={country.name.common} />
-        ))}
+        {isPending ? (
+          <Loader />
+        ) : (
+          countries?.map((country) => (
+            <Card country={country} key={country.name.common} />
+          ))
+        )}
       </div>
     </section>
   );

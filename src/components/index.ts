@@ -3,4 +3,4 @@ import Filter from "./Filter";
 import Loader from "./Loader";
 import Card from "./Card";
 
-export { Navbar, Filter, Loader, Card,  };
+export { Navbar, Filter, Loader, Card };
