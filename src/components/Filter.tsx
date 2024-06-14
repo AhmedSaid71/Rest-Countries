@@ -1,9 +1,10 @@
 import { Select } from "antd";
 import { regions } from "../constants";
+import { FilterType } from "../types";
 
-const Filter = () => {
+const Filter = ({ setRegion, loading }: FilterType) => {
   const handleChange = (value: string) => {
-    console.log(value);
+    setRegion(value);
   };
   return (
     <Select
@@ -11,6 +12,7 @@ const Filter = () => {
       placeholder="Search by Region"
       onChange={handleChange}
       options={regions}
+      disabled={loading}
     />
   );
 };
