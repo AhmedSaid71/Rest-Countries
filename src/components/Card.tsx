@@ -5,7 +5,7 @@ import { formatNumberWithCommas } from "../utils/helpers";
 const Card = ({ country }: { country: Country }) => {
   return (
     <Link to={`country/${country.name.common.toLowerCase()}`}>
-      <div className="flex flex-col gap-4 bg-white rounded hover:shadow-lg duration-300 sm:max-w-[320px]">
+      <div className="flex flex-col gap-4 bg-white rounded hover:shadow-lg duration-300 dark:bg-dark-blue">
         <img
           src={country.flags.svg}
           alt={country.name.common}

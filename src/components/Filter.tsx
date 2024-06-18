@@ -8,7 +8,7 @@ const Filter = ({ setRegion, loading }: FilterType) => {
   };
   return (
     <Select
-      className="select w-44 border-none outline-none"
+      className="select w-44 h-10 border-none outline-none dark:bg-dark-blue"
       placeholder="Search by Region"
       onChange={handleChange}
       options={regions}
