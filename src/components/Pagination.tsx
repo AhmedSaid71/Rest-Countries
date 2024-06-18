@@ -11,6 +11,7 @@ const Pagination = ({
       defaultCurrent={defaultPage}
       total={total}
       onChange={(page, pageSize) => handleChange(page, pageSize)}
+      className="dark:text-white"
     />
   );
 };
