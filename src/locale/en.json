@@ -1,0 +1,24 @@
+{
+  "title": "Where in the world?",
+  "darkMode": "Dark Mode",
+  "searchBarPlaceholder": "Search for Country...",
+  "filterPlaceholder": "Search by Region",
+  "regions": {
+    "all": "All",
+    "africa": "Africa",
+    "america": "America",
+    "asia": "Asia",
+    "europe": "Europe",
+    "oceania": "Oceania"
+  },
+  "nativeName": "Native Name",
+  "population": "Population",
+  "region": "Region",
+  "subRegion": "Sub Region",
+  "capital": "Capital",
+  "tld": "Top Level Domain",
+  "languages": "Languages",
+  "borderCountries": "Border Countries",
+  "currencies": "Currencies",
+  "goBack": "Back"
+}
