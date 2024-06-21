@@ -1,15 +1,26 @@
 import { Select } from "antd";
-import { regions } from "../constants";
 import { FilterType } from "../types";
+import { useTranslation } from "react-i18next";
 
 const Filter = ({ setRegion, loading }: FilterType) => {
+  const { t } = useTranslation();
   const handleChange = (value: string) => {
     setRegion(value);
   };
+  
+  const regions = [
+    { value: "", label: t("regions.all") },
+    { value: "africa", label: t("regions.africa") },
+    { value: "america", label: t("regions.america") },
+    { value: "asia", label: t("regions.asia") },
+    { value: "europe", label: t("regions.europe") },
+    { value: "oceania", label: t("regions.oceania") },
+  ];
+
   return (
     <Select
       className="select w-44 h-10 border-none outline-none dark:bg-dark-blue"
-      placeholder="Search by Region"
+      placeholder={t("filterPlaceholder")}
       onChange={handleChange}
       options={regions}
       disabled={loading}

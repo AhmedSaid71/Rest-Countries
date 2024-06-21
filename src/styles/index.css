@@ -15,6 +15,7 @@
 /* Common styles */
 body {
   font-family: "Nunito Sans", sans-serif;
+  direction: rtl;
 }
 *:disabled {
   cursor: not-allowed;

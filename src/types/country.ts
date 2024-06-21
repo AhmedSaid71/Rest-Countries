@@ -11,6 +11,9 @@ export interface Country {
   languages: Languages;
   borders: string[];
   cca3: string;
+  translations: {
+    ara: Name;
+  };
 }
 export interface Currencies {
   [key: string]: Currency;

@@ -1,0 +1,24 @@
+{
+  "title": "أين في العالم؟",
+  "darkMode": "الوضع المظلم",
+  "searchBarPlaceholder": "ابحث عن دولة...",
+  "filterPlaceholder": "ابحث حسب المنطقة",
+  "regions": {
+    "all": "الكل",
+    "africa": "أفريقيا",
+    "america": "أمريكا",
+    "asia": "آسيا",
+    "europe": "أوروبا",
+    "oceania": "أوقيانوسيا"
+  },
+  "nativeName": "الاسم الأصلي",
+  "population": "عدد السكان",
+  "region": "المنطقة",
+  "subRegion": "المنطقة الفرعية",
+  "capital": "العاصمة",
+  "tld": "النطاق العلوي",
+  "languages": "اللغات",
+  "borderCountries": "البلدان الحدودية",
+  "currencies": "العملات",
+  "goBack": "رجوع"
+}
