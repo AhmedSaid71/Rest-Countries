@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export interface DropDownType {
   handleChange: (value: string) => void;
   loading: boolean;
@@ -5,9 +7,10 @@ export interface DropDownType {
   className: string;
   options: { label: string; value: string }[];
 }
-export interface SearchBarType {
-  setName: (name: string) => void;
-  name: string;
+export interface InputType {
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  placeholder: string;
+  className: string;
 }
 export interface PaginationType {
   defaultPage: number;

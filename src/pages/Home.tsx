@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import {
   DropDown,
   Loader,
   Card,
-  SearchBar,
+  Input,
   NotFound,
   Pagination,
 } from "../components";
@@ -14,8 +14,18 @@ const Home = () => {
   const { t } = useTranslation();
   const [region, setRegion] = useState("");
   const [name, setName] = useState("");
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
   const debouncedSearch = useDebounce(name);
   const { isPending, countries } = useCountries(region, debouncedSearch);
+
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+  const paginatedCountries = countries?.slice(start, end);
+  const handlePageChange = (page: number, size: number) => {
+    setPage(page);
+    setPageSize(size);
+  };
 
   const handleRegionChange = (value: string) => {
     setRegion(value);
@@ -28,25 +38,19 @@ const Home = () => {
     { value: "europe", label: t("regions.europe") },
     { value: "oceania", label: t("regions.oceania") },
   ];
-
-  //pagination
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-
-  const start = (page - 1) * pageSize;
-  const end = start + pageSize;
-  const paginatedCountries = countries?.slice(start, end);
-
-  const handlePageChange = (page: number, size: number) => {
-    setPage(page);
-    setPageSize(size);
+  const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
 
   return (
     <section className="flex flex-col gap-8 min-h-dvh">
       <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
         <div className="max-w-[350px] w-full">
-          <SearchBar name={name} setName={setName} />
+          <Input
+            className="px-7 py-3 w-full border-none outline-none bg-white rounded focus:shadow-lg dark:bg-dark-blue dark:text-white dark:placeholder:text-white"
+            handleChange={handleSearchChange}
+            placeholder={t("searchBarPlaceholder")}
+          />
         </div>
         <div>
           <DropDown
