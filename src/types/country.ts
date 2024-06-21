@@ -1,16 +1,25 @@
-export interface Country {
+export interface CountryType {
   flags: { png: string; svg: string; alt: string };
   name: Name;
   population: number;
   region: string;
   subregion: string;
   capital: string[];
-  latlng: number[];
   tld: string[];
   currencies: Currencies;
   languages: Languages;
   borders: string[];
   cca3: string;
+  translations: {
+    ara: Name;
+  };
+}
+export interface CountryMiniType {
+  flags: { png: string; svg: string; alt: string };
+  name: Name;
+  population: number;
+  region: string;
+  capital: string[];
   translations: {
     ara: Name;
   };

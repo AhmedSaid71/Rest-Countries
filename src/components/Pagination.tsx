@@ -15,6 +15,7 @@ const Pagination = ({
     <PaginationAnt
       defaultCurrent={defaultPage}
       total={total}
+      hideOnSinglePage={true}
       onChange={(page, pageSize) => handleChange(page, pageSize)}
       className="dark:text-white"
       nextIcon={
