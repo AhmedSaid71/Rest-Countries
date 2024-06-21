@@ -54,7 +54,9 @@ const Country = () => {
             <div className="flex flex-col gap-3 flex-1">
               <div>
                 <span className="bold">{t("nativeName")}: </span>
-                {country?.name?.common}
+                {i18n.language === "ar"
+                  ? country?.translations?.ara?.official
+                  : country?.name?.official}
               </div>
               <div>
                 <span className="bold">{t("population")}: </span>
@@ -62,7 +64,7 @@ const Country = () => {
               </div>
               <div>
                 <span className="bold">{t("region")}: </span>
-                {t(`regions.${country?.region?.toLowerCase()}`)}
+                {t(`regions.${country?.region.toLowerCase()}`)}
               </div>
               <div>
                 <span className="bold">{t("subRegion")}: </span>

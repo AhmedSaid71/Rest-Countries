@@ -3,11 +3,11 @@ import { FilterType } from "../types";
 import { useTranslation } from "react-i18next";
 
 const Filter = ({ setRegion, loading }: FilterType) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const handleChange = (value: string) => {
     setRegion(value);
   };
-  
+
   const regions = [
     { value: "", label: t("regions.all") },
     { value: "africa", label: t("regions.africa") },
@@ -24,6 +24,7 @@ const Filter = ({ setRegion, loading }: FilterType) => {
       onChange={handleChange}
       options={regions}
       disabled={loading}
+      dropdownStyle={{ direction: i18n.language === "ar" ? "rtl" : "ltr" }}
     />
   );
 };

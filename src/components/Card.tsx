@@ -4,7 +4,7 @@ import { Country } from "../types/country";
 import { formatNumberWithCommas } from "../utils/helpers";
 
 const Card = ({ country }: { country: Country }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   return (
     <Link to={`country/${country.name.common.toLowerCase()}`}>
@@ -22,15 +22,15 @@ const Card = ({ country }: { country: Country }) => {
           </h3>
           <div className="flex flex-col gap-1">
             <div>
-              <span className=" font-bold">Population: </span>
+              <span className=" font-bold">{t("population")}: </span>
               {formatNumberWithCommas(country.population)}
             </div>
             <div>
-              <span className=" font-bold">Region: </span>
-              {country.region}
+              <span className=" font-bold">{t("region")}: </span>
+              {t(`regions.${country?.region.toLowerCase()}`)}
             </div>
             <div>
-              <span className=" font-bold">Capital: </span>
+              <span className=" font-bold">{t("capital")}: </span>
               {country.capital}
             </div>
           </div>

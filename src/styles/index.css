@@ -15,7 +15,6 @@
 /* Common styles */
 body {
   font-family: "Nunito Sans", sans-serif;
-  direction: rtl;
 }
 *:disabled {
   cursor: not-allowed;
@@ -146,5 +145,17 @@ body {
 }
 .ant-select-item.ant-select-item-option.ant-select-item-option:hover {
   background-color: var(--dark-blue-200);
+}
+
+.ant-pagination-prev.ant-pagination-disabled,
+.ant-pagination-next.ant-pagination-disabled,
+.ant-pagination.css-dev-only-do-not-override-zg0ahe .ant-pagination-prev,
+.ant-pagination.css-dev-only-do-not-override-zg0ahe .ant-pagination-next {
+  font-size: 18px;
+  padding: 7px;
+  color: var(--white);
+  &:hover {
+    opacity: 0.5;
+  }
 }
 /* End Dropdown Styles*/

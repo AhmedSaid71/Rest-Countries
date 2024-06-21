@@ -5,10 +5,13 @@ import { useDarkMode } from "../context";
 
 const Navbar = () => {
   const { isDarkMode, toggleDarkMode } = useDarkMode();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
-    <nav className="flex justify-center dark:bg-dark-blue dark:text-white items-center py-6 mx-auto shadow-sm border-b border-b-dark-gray dark:border-b-dark-blue">
+    <nav
+      className="flex justify-center dark:bg-dark-blue dark:text-white items-center py-6 mx-auto shadow-sm border-b border-b-dark-gray dark:border-b-dark-blue"
+      style={{ direction: i18n.language === "ar" ? "rtl" : "ltr" }}
+    >
       <div className="container flex justify-between">
         <Link to="/">
           <h1 className=" text-base sm:text-2xl font-bold">{t("title")}</h1>
