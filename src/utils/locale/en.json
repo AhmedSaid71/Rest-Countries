@@ -9,7 +9,8 @@
     "america": "America",
     "asia": "Asia",
     "europe": "Europe",
-    "oceania": "Oceania"
+    "oceania": "Oceania",
+    "americas": "Americas"
   },
   "nativeName": "Native Name",
   "population": "Population",

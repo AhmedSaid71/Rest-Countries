@@ -15,25 +15,14 @@
 /* Common styles */
 body {
   font-family: "Nunito Sans", sans-serif;
-  direction: rtl;
 }
 *:disabled {
   cursor: not-allowed;
 }
 .container {
-  max-width: 1180px;
+  max-width: 1440px;
   padding-inline: 20px;
   margin-inline: auto;
-}
-.list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 2rem;
-}
-@layer components {
-  .bold {
-    @apply font-bold;
-  }
 }
 
 /* Loader Styles*/
@@ -53,6 +42,18 @@ body {
     transform: rotate(1turn);
   }
 }
+/* Start Input Styles */
+
+.ant-input-affix-wrapper.ant-input-outlined.css-dev-only-do-not-override-zg0ahe {
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+}
+
+.ant-input.css-dev-only-do-not-override-zg0ahe::placeholder {
+  color: var(--white);
+}
+/* End Input Styles */
 
 /* Button Styles  */
 .ant-btn.ant-btn-default.css-dev-only-do-not-override-zg0ahe {
@@ -146,5 +147,17 @@ body {
 }
 .ant-select-item.ant-select-item-option.ant-select-item-option:hover {
   background-color: var(--dark-blue-200);
+}
+
+.ant-pagination-prev.ant-pagination-disabled,
+.ant-pagination-next.ant-pagination-disabled,
+.ant-pagination.css-dev-only-do-not-override-zg0ahe .ant-pagination-prev,
+.ant-pagination.css-dev-only-do-not-override-zg0ahe .ant-pagination-next {
+  font-size: 18px;
+  padding: 7px;
+  color: var(--white);
+  &:hover {
+    opacity: 0.5;
+  }
 }
 /* End Dropdown Styles*/

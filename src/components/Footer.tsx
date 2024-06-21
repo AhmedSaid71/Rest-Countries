@@ -1,27 +1,23 @@
-import { Select } from "antd";
 import { languages } from "../constants";
 import { useTranslation } from "react-i18next";
+import DropDown from "./DropDown";
 
 const Footer = () => {
   const { i18n } = useTranslation();
-
+  const handleLanguageChange = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
   return (
-    <footer className="dark:bg-dark-blue-700 pb-5">
-      <div className="container flex justify-end gap-5 text-white">
-        {/* <Select options={languages} defaultValue={la nguages[0]} onClick={} />
-         */}
-        <button
-          className="border-2 border-dark-blue px-8 py-1 rounded hover:bg-dark-blue transition"
-          onClick={() => i18n.changeLanguage("ar")}
-        >
-          Ar
-        </button>
-        <button
-          className="border-2 border-dark-blue px-8 py-1 rounded hover:bg-dark-blue transition"
-          onClick={() => i18n.changeLanguage("en")}
-        >
-          En
-        </button>
+    <footer
+      className="dark:bg-dark-blue py-5"
+      style={{ direction: i18n.language === "ar" ? "rtl" : "ltr" }}
+    >
+      <div className="container flex justify-end gap-5 dark:text-white ">
+        <DropDown
+          options={languages}
+          handleChange={handleLanguageChange}
+          placeholder={i18n.language === "en" ? "English" : "Arabic"}
+        />
       </div>
     </footer>
   );
