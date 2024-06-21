@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  Filter,
+  DropDown,
   Loader,
   Card,
   SearchBar,
@@ -8,12 +8,26 @@ import {
   Pagination,
 } from "../components";
 import { useCountries, useDebounce } from "../hooks";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t } = useTranslation();
   const [region, setRegion] = useState("");
   const [name, setName] = useState("");
   const debouncedSearch = useDebounce(name);
   const { isPending, countries } = useCountries(region, debouncedSearch);
+
+  const handleRegionChange = (value: string) => {
+    setRegion(value);
+  };
+  const regions = [
+    { value: "", label: t("regions.all") },
+    { value: "africa", label: t("regions.africa") },
+    { value: "america", label: t("regions.america") },
+    { value: "asia", label: t("regions.asia") },
+    { value: "europe", label: t("regions.europe") },
+    { value: "oceania", label: t("regions.oceania") },
+  ];
 
   //pagination
   const [page, setPage] = useState(1);
@@ -23,7 +37,7 @@ const Home = () => {
   const end = start + pageSize;
   const paginatedCountries = countries?.slice(start, end);
 
-  const handleChange = (page: number, size: number) => {
+  const handlePageChange = (page: number, size: number) => {
     setPage(page);
     setPageSize(size);
   };
@@ -35,7 +49,13 @@ const Home = () => {
           <SearchBar name={name} setName={setName} />
         </div>
         <div>
-          <Filter setRegion={setRegion} loading={isPending} />
+          <DropDown
+            placeholder={t("filterPlaceholder")}
+            handleChange={handleRegionChange}
+            loading={isPending}
+            className="select w-44 h-10 border-none outline-none dark:bg-dark-blue"
+            options={regions}
+          />
         </div>
       </div>
       {isPending ? (
@@ -53,7 +73,7 @@ const Home = () => {
             <Pagination
               defaultPage={1}
               total={countries?.length || 0}
-              handleChange={handleChange}
+              handleChange={handlePageChange}
             />
           </div>
         </>

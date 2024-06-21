@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import Filter from "./Filter";
+import DropDown from "./DropDown";
 import Loader from "./Loader";
 import Card from "./Card";
 import SearchBar from "./SearchBar";
@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 export {
   Navbar,
-  Filter,
+  DropDown,
   Loader,
   Card,
   SearchBar,
