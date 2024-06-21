@@ -9,7 +9,7 @@ import {
 } from "../components";
 import { useCountries, useDebounce } from "../hooks";
 import { useTranslation } from "react-i18next";
-
+import { IoMdSearch } from "react-icons/io";
 const Home = () => {
   const { t } = useTranslation();
   const [region, setRegion] = useState("");
@@ -44,12 +44,15 @@ const Home = () => {
 
   return (
     <section className="flex flex-col gap-8 min-h-dvh">
-      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
-        <div className="max-w-[350px] w-full">
+      <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 ">
+        <div className="max-w-[350px] w-full flex items-center">
           <Input
-            className="px-7 py-3 w-full border-none outline-none bg-white rounded focus:shadow-lg dark:bg-dark-blue dark:text-white dark:placeholder:text-white"
+            className="px-7 py-3 w-full bg-white rounded focus:shadow-xl dark:bg-dark-blue dark:text-white dark:placeholder:text-white"
             handleChange={handleSearchChange}
             placeholder={t("searchBarPlaceholder")}
+            prefix={
+              <IoMdSearch className="text-xl text-gray-400 dark:text-white" />
+            }
           />
         </div>
         <div>
@@ -68,7 +71,7 @@ const Home = () => {
         <NotFound />
       ) : (
         <>
-          <div className="list">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
             {paginatedCountries?.map((country) => (
               <Card country={country} key={country.name.common} />
             ))}

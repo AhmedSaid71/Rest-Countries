@@ -8,7 +8,7 @@ const MainLayout = () => {
     <>
       <Navbar />
       <main
-        className="bg-dark-gray min-h-[88.4dvh] dark:bg-dark-blue-700 dark:text-white"
+        className="bg-dark-gray min-h-[88.4dvh] dark:bg-dark-blue-700 dark:text-white text-light-mode-text-color"
         style={{ direction: i18n.language === "ar" ? "rtl" : "ltr" }}
       >
         <section className="container py-6">

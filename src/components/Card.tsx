@@ -22,15 +22,15 @@ const Card = ({ country }: { country: CountryMiniType }) => {
           </h3>
           <div className="flex flex-col gap-1">
             <div>
-              <span className=" font-bold">{t("population")}: </span>
+              <span className="font-bold">{t("population")}: </span>
               {formatNumberWithCommas(country.population)}
             </div>
             <div>
-              <span className=" font-bold">{t("region")}: </span>
+              <span className="font-bold">{t("region")}: </span>
               {t(`regions.${country?.region.toLowerCase()}`)}
             </div>
             <div>
-              <span className=" font-bold">{t("capital")}: </span>
+              <span className="font-bold">{t("capital")}: </span>
               {country.capital}
             </div>
           </div>

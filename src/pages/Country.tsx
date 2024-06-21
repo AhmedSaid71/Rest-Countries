@@ -36,12 +36,12 @@ const Country = () => {
           {t("goBack")}
         </Button>
       </div>
-      <div className="flex gap-16 flex-col md:flex-row">
-        <div className="flex-1 items-center justify-center flex lg:block">
+      <div className="flex gap-16 flex-col lg:flex-row">
+        <div className="flex-1 items-center justify-center flex ">
           <img
             src={country?.flags?.svg}
-            alt={country?.flags?.alt}
-            className="w-full max-h-[300px] h-full object-fit"
+            alt={country?.flags?.alt || country?.name?.common}
+            className="min-w-full  h-full object-fit"
           />
         </div>
         <div className="flex-1 flex flex-col gap-4 sm:pt-10">
@@ -53,35 +53,35 @@ const Country = () => {
           <div className="flex flex-col lg:flex-row gap-16">
             <div className="flex flex-col gap-3 flex-1">
               <div>
-                <span className="bold">{t("nativeName")}: </span>
+                <span className="font-bold">{t("nativeName")}: </span>
                 {i18n.language === "ar"
                   ? country?.translations?.ara?.official
                   : country?.name?.official}
               </div>
               <div>
-                <span className="bold">{t("population")}: </span>
+                <span className="font-bold">{t("population")}: </span>
                 {formatNumberWithCommas(country?.population as number)}
               </div>
               <div>
-                <span className="bold">{t("region")}: </span>
+                <span className="font-bold">{t("region")}: </span>
                 {t(`regions.${country?.region.toLowerCase()}`)}
               </div>
               <div>
-                <span className="bold">{t("subRegion")}: </span>
+                <span className="font-bold">{t("subRegion")}: </span>
                 {country?.subregion}
               </div>
               <div>
-                <span className="bold">{t("capital")}: </span>
+                <span className="font-bold">{t("capital")}: </span>
                 {country?.capital}
               </div>
             </div>
             <div className="flex flex-col gap-3 flex-1">
               <div>
-                <span className="bold">{t("tld")}: </span>
+                <span className="font-bold">{t("tld")}: </span>
                 {country?.tld}
               </div>
               <div>
-                <span className="bold">{t("currencies")}: </span>
+                <span className="font-bold">{t("currencies")}: </span>
                 {Object.entries(country?.currencies as Currencies).map(
                   (cr, i, arr) => (
                     <React.Fragment key={`${i}-${cr[1].name}`}>
@@ -92,7 +92,7 @@ const Country = () => {
                 )}
               </div>
               <div>
-                <span className="bold">{t("languages")}: </span>
+                <span className="font-bold">{t("languages")}: </span>
                 {Object.entries(country?.languages as Languages).map(
                   (c, i, arr) => (
                     <React.Fragment key={`${i}-${c[1]}`}>
