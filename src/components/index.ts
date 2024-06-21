@@ -5,5 +5,15 @@ import Card from "./Card";
 import SearchBar from "./SearchBar";
 import NotFound from "./NotFound";
 import Pagination from "./Pagination";
+import Footer from "./Footer";
 
-export { Navbar, Filter, Loader, Card, SearchBar, NotFound, Pagination };
+export {
+  Navbar,
+  Filter,
+  Loader,
+  Card,
+  SearchBar,
+  NotFound,
+  Pagination,
+  Footer,
+};

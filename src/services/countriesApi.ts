@@ -9,7 +9,7 @@ export const getCountries = async (
 ): Promise<Country[]> => {
   let query;
   if (region) query = `${BASE_URL}/region/${region}`;
-  else if (name) query = `${BASE_URL}/name/${name}`;
+  else if (name) query = `${BASE_URL}/translation/${name}`;
   else query = `${BASE_URL}/all`;
   const { data } = await axios.get(query);
   return data;

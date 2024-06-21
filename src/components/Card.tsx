@@ -1,8 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Country } from "../types/country";
 import { formatNumberWithCommas } from "../utils/helpers";
 
 const Card = ({ country }: { country: Country }) => {
+  const { i18n, t } = useTranslation();
+
   return (
     <Link to={`country/${country.name.common.toLowerCase()}`}>
       <div className="flex flex-col gap-4 bg-white rounded hover:shadow-lg duration-300 dark:bg-dark-blue">
@@ -12,18 +15,22 @@ const Card = ({ country }: { country: Country }) => {
           className="w-full min-h-[160px] max-h-[160px] rounded-t object-cover"
         />
         <div className=" pt-2 pb-10 px-5 flex flex-col gap-4">
-          <h3 className="font-bold text-lg">{country.name.common}</h3>
+          <h3 className="font-bold text-lg">
+            {i18n.language === "ar"
+              ? country?.translations?.ara?.common
+              : country?.name?.common}
+          </h3>
           <div className="flex flex-col gap-1">
             <div>
-              <span className=" font-bold">Population: </span>
+              <span className=" font-bold">{t("population")}: </span>
               {formatNumberWithCommas(country.population)}
             </div>
             <div>
-              <span className=" font-bold">Region: </span>
-              {country.region}
+              <span className=" font-bold">{t("region")}: </span>
+              {t(`regions.${country?.region.toLowerCase()}`)}
             </div>
             <div>
-              <span className=" font-bold">Capital: </span>
+              <span className=" font-bold">{t("capital")}: </span>
               {country.capital}
             </div>
           </div>
