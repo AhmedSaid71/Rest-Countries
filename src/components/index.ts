@@ -5,7 +5,6 @@ import Card from "./Card";
 import Input from "./Input";
 import NotFound from "./NotFound";
 import Pagination from "./Pagination";
-import Footer from "./Footer";
 import ErrorFallback from "./ErrorFallback";
 
 export {
@@ -16,6 +15,5 @@ export {
   Input,
   NotFound,
   Pagination,
-  Footer,
   ErrorFallback,
 };

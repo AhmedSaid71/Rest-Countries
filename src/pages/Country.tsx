@@ -2,12 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "antd";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
+import { useTranslation } from "react-i18next";
 
 import { useCountry, useCountryBorders } from "../hooks";
 import { Loader } from "../components";
 import { Currencies, Languages } from "../types";
 import { formatNumberWithCommas } from "./../utils/helpers";
-import { useTranslation } from "react-i18next";
 
 const Country = () => {
   const { t, i18n } = useTranslation();
@@ -111,7 +111,9 @@ const Country = () => {
                 {borders?.map((border) => (
                   <Link to={`/country/${border.name.common.toLowerCase()}`}>
                     <div className="py-2 px-4 shadow-md hover:bg-gray-200 cursor-pointer flex items-stretch min-w-fit dark:bg-dark-blue dark:hover:bg-dark-blue/60 transition">
-                      {border.name.common}
+                      {i18n.language === "ar"
+                        ? border.translations.ara.common
+                        : border.name.common}
                     </div>
                   </Link>
                 ))}

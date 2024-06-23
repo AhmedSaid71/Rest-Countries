@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Footer, Navbar } from "../components";
+import { Navbar } from "../components";
 import { useTranslation } from "react-i18next";
 
 const MainLayout = () => {
@@ -15,7 +15,6 @@ const MainLayout = () => {
           <Outlet />
         </section>
       </main>
-      <Footer />
     </>
   );
 };
