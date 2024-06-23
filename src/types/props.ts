@@ -18,3 +18,8 @@ export interface PaginationType {
   total: number;
   handleChange: (page: number, size: number) => void;
 }
+
+export interface NotfoundType {
+  message?: string;
+  children?: ReactNode;
+}

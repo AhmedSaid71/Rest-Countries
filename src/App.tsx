@@ -4,7 +4,7 @@ import { MainLayout } from "./layouts";
 import { Country, Home } from "./pages";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Loader } from "./components";
+import { ErrorFallback, Loader } from "./components";
 import { SettingsProvider } from "./context";
 
 const router = createBrowserRouter([
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/country/:countryName", element: <Country /> },
     ],
+    errorElement: <ErrorFallback />,
   },
 ]);
 const queryClient = new QueryClient();

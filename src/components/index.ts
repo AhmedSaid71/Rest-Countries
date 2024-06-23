@@ -6,5 +6,16 @@ import Input from "./Input";
 import NotFound from "./NotFound";
 import Pagination from "./Pagination";
 import Footer from "./Footer";
+import ErrorFallback from "./ErrorFallback";
 
-export { Navbar, DropDown, Loader, Card, Input, NotFound, Pagination, Footer };
+export {
+  Navbar,
+  DropDown,
+  Loader,
+  Card,
+  Input,
+  NotFound,
+  Pagination,
+  Footer,
+  ErrorFallback,
+};
