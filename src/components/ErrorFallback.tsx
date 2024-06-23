@@ -2,7 +2,18 @@ import { Link, useRouteError } from "react-router-dom";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import NotFound from "./NotFound";
 const ErrorFallback = () => {
-  const error = useRouteError();
+  interface ErrorType {
+    data: string;
+    status: number;
+    internal: boolean;
+    statusText: string;
+    error: {
+      message: string;
+      stack: string;
+    };
+  }
+  const unknownError = useRouteError();
+  const error = unknownError as ErrorType;
   return (
     <section className="flex justify-center items-center flex-col dark:bg-dark-blue dark:text-white min-h-[100dvh]">
       {error.status === 404 ? (
