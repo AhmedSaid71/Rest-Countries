@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useDarkMode } from "../context";
+import { useSettings } from "../context";
 
 const Navbar = () => {
-  const { isDarkMode, toggleDarkMode } = useDarkMode();
+  const { isDarkMode, toggleDarkMode } = useSettings();
   const { t, i18n } = useTranslation();
 
   return (

@@ -5,7 +5,7 @@ import { Country, Home } from "./pages";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Loader } from "./components";
-import { DarkModeProvider } from "./context";
+import { SettingsProvider } from "./context";
 
 const router = createBrowserRouter([
   {
@@ -26,9 +26,9 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
-      <DarkModeProvider>
+      <SettingsProvider>
         <RouterProvider router={router} />
-      </DarkModeProvider>
+      </SettingsProvider>
     </QueryClientProvider>
   );
 };
