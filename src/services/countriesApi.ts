@@ -31,7 +31,7 @@ export const getCountry = async (name: string): Promise<CountryType> => {
 export const getCountryBorders = async (codes: string): Promise<Borders[]> => {
   // https://restcountries.com/v3.1/alpha?codes=AND
   const { data } = await axios.get(
-    `${BASE_URL}/alpha?codes=${codes}&fields=name`
+    `${BASE_URL}/alpha?codes=${codes}&fields=name,translations`
   );
   return data;
 };

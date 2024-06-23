@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Footer, Navbar } from "../components";
+import { Navbar } from "../components";
 import { useTranslation } from "react-i18next";
 
 const MainLayout = () => {
@@ -11,11 +11,10 @@ const MainLayout = () => {
         className="bg-dark-gray min-h-[88.4dvh] dark:bg-dark-blue-700 dark:text-white text-light-mode-text-color"
         style={{ direction: i18n.language === "ar" ? "rtl" : "ltr" }}
       >
-        <section className="container py-6">
+        <section className="container py-6 bg-dark-gray dark:bg-dark-blue-700">
           <Outlet />
         </section>
       </main>
-      <Footer />
     </>
   );
 };

@@ -40,4 +40,7 @@ export interface Name {
 }
 export interface Borders {
   name: Name;
+  translations: {
+    ara: Name;
+  };
 }

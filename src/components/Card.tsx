@@ -12,7 +12,7 @@ const Card = ({ country }: { country: CountryMiniType }) => {
         <img
           src={country.flags.svg}
           alt={country.name.common}
-          className="w-full min-h-[160px] max-h-[160px] rounded-t object-cover"
+          className="w-full min-h-[180px] sm:max-h-[180px] h-full max-h-[260px] rounded-t object-cover"
         />
         <div className=" pt-2 pb-10 px-5 flex flex-col gap-4">
           <h3 className="font-bold text-lg">
