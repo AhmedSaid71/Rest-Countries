@@ -1,0 +1,47 @@
+.ant-pagination .ant-pagination-prev.ant-pagination-disabled {
+  color: var(--white);
+}
+.ant-pagination .ant-pagination-prev .ant-pagination-item-link {
+  color: var(--white);
+}
+.ant-pagination .ant-pagination-item {
+  background: var(--dark-blue);
+  color: var(--white);
+  border: none;
+}
+.ant-pagination .ant-pagination-item.ant-pagination-item-active a {
+  color: var(--white);
+  background: var(--dark-blue-200);
+  border-radius: 6px;
+}
+.ant-pagination .ant-pagination-item.ant-pagination-item-active {
+  background: var(--dark-blue-200);
+}
+.ant-pagination .ant-pagination-item a,
+.ant-pagination-jump-next.ant-pagination-jump-next-custom-icon
+  .ant-pagination-item-link
+  .ant-pagination-item-container
+  .anticon-double-right,
+.ant-pagination-jump-next.ant-pagination-jump-next-custom-icon
+  .ant-pagination-item-link
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis,
+.ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon
+  .ant-pagination-item-link
+  .ant-pagination-item-container
+  .ant-pagination-item-ellipsis,
+.anticon.anticon-right,
+.ant-pagination-jump-prev.ant-pagination-jump-prev-custom-icon
+  .ant-pagination-item-link
+  .ant-pagination-item-container
+  .anticon-double-left {
+  color: var(--white);
+}
+.ant-pagination-options .ant-select.ant-select-outlined .ant-select-selector {
+  background-color: var(--dark-blue);
+  border: none;
+  color: var(--white);
+}
+.ant-pagination-options .ant-select.ant-select-outlined .ant-select-arrow {
+  color: var(--white);
+}

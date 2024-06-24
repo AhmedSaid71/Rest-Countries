@@ -1,5 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCountryBorders } from "../services";
+import { API } from "@/utils/axiosInstance";
+import { Borders } from "@/types/country";
+
+const getCountryBorders = async (codes: string): Promise<Borders[]> => {
+  const { data } = await API.get(
+    `/alpha?codes=${codes}&fields=name,translations`
+  );
+  return data;
+};
 
 export function useCountryBorders(codes: string) {
   const {

@@ -1,11 +1,15 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { MainLayout } from "./layouts";
-import { Country, Home } from "./pages";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { ErrorFallback, Loader } from "./components";
-import { SettingsProvider } from "./context";
+import Loader from "./components/shared/Loader";
+import ErrorFallback from "./components/shared/ErrorFallback";
+import MainLayout from "./components/layouts/MainLayout";
+import { DarkModeProvider } from "./context/DarkModeContext";
+import { LanguageProvider } from "./context/LanguageContext";
+
+const Home = lazy(() => import("./routes/Home"));
+const Country = lazy(() => import("./routes/Country"));
 
 const router = createBrowserRouter([
   {
@@ -27,9 +31,11 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
-      <SettingsProvider>
-        <RouterProvider router={router} />
-      </SettingsProvider>
+      <DarkModeProvider>
+        <LanguageProvider>
+          <RouterProvider router={router} />
+        </LanguageProvider>
+      </DarkModeProvider>
     </QueryClientProvider>
   );
 };

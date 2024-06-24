@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
-import { Navbar } from "../components";
 import { useTranslation } from "react-i18next";
+
+import Navbar from "@/components/shared/Navbar";
 
 const MainLayout = () => {
   const { i18n } = useTranslation();

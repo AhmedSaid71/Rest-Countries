@@ -4,10 +4,11 @@ import { Button } from "antd";
 import { GoArrowLeft, GoArrowRight } from "react-icons/go";
 import { useTranslation } from "react-i18next";
 
-import { useCountry, useCountryBorders } from "../hooks";
-import { Loader } from "../components";
-import { Currencies, Languages } from "../types";
-import { formatNumberWithCommas } from "./../utils/helpers";
+import { useCountryBorders } from "@/hooks/countryBorders/useCountryBorders";
+import { useCountry } from "@/hooks/country/useCountry";
+import { formatNumberWithCommas } from "@/utils/formatNumberWithCommas";
+import { Currencies, Languages } from "@/types/country";
+import Loader from "@/components/shared/Loader";
 
 const Country = () => {
   const { t, i18n } = useTranslation();
@@ -19,7 +20,6 @@ const Country = () => {
   const handleGoBack = () => {
     navigate(-1);
   };
-
   if (isPending || isPendingBorders) return <Loader />;
   return (
     <section className="flex gap-8 flex-col mt-8">
@@ -109,7 +109,10 @@ const Country = () => {
               <h2>{t("borderCountries")}:</h2>
               <div className="flex gap-2 flex-wrap">
                 {borders?.map((border) => (
-                  <Link to={`/country/${border.name.common.toLowerCase()}`}>
+                  <Link
+                    to={`/country/${border.name.common.toLowerCase()}`}
+                    key={border?.name?.official}
+                  >
                     <div className="py-2 px-4 shadow-md hover:bg-gray-200 cursor-pointer flex items-stretch min-w-fit dark:bg-dark-blue dark:hover:bg-dark-blue/60 transition">
                       {i18n.language === "ar"
                         ? border.translations.ara.common

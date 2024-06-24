@@ -1,6 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { Select } from "antd";
-import { DropDownType } from "../types";
+
+interface DropDownPropsType {
+  handleChange: (value: string) => void;
+  loading?: boolean;
+  placeholder?: string;
+  className?: string;
+  options: { label: string; value: string }[];
+}
 
 const DropDown = ({
   loading,
@@ -8,7 +15,7 @@ const DropDown = ({
   placeholder,
   handleChange,
   className,
-}: DropDownType) => {
+}: DropDownPropsType) => {
   const { i18n } = useTranslation();
 
   return (

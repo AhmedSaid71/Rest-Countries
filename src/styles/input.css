@@ -1,0 +1,9 @@
+.ant-input-affix-wrapper.ant-input-outlined.css-dev-only-do-not-override-zg0ahe {
+  border: none;
+  outline: 0;
+  outline-offset: 0;
+}
+
+.ant-input.css-dev-only-do-not-override-zg0ahe::placeholder {
+  color: var(--white);
+}

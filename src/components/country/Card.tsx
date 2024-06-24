@@ -1,7 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { CountryMiniType } from "../types/country";
-import { formatNumberWithCommas } from "../utils/helpers";
+
+import { CountryMiniType } from "@/types/country";
+import { formatNumberWithCommas } from "@/utils/formatNumberWithCommas";
 
 const Card = ({ country }: { country: CountryMiniType }) => {
   const { i18n, t } = useTranslation();

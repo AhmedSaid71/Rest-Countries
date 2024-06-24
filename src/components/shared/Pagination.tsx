@@ -1,15 +1,21 @@
 import { Pagination as PaginationAnt } from "antd";
-import { PaginationType } from "../types";
 import { useTranslation } from "react-i18next";
 import {
   MdOutlineKeyboardArrowLeft,
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
+
+interface PaginationPropsType {
+  defaultPage: number;
+  total: number;
+  handleChange: (page: number, size: number) => void;
+}
+
 const Pagination = ({
   defaultPage = 1,
   total,
   handleChange,
-}: PaginationType) => {
+}: PaginationPropsType) => {
   const { i18n } = useTranslation();
   return (
     <PaginationAnt

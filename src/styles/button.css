@@ -1,0 +1,8 @@
+.ant-btn.ant-btn-default.css-dev-only-do-not-override-zg0ahe {
+  border: none;
+}
+.ant-btn.ant-btn-default.css-dev-only-do-not-override-zg0ahe:hover {
+  background: var(--dark-blue);
+  border-color: var(--dark-blue);
+  color: var(--white);
+}

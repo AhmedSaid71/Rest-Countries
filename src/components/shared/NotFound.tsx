@@ -1,7 +1,14 @@
+import { ReactNode } from "react";
 import Lottie from "lottie-react";
-import notFoundAnimation from "../assets/not found.json";
-import { NotfoundType } from "../types";
-const NotFound = ({ message, children }: NotfoundType) => {
+
+import notFoundAnimation from "@/assets/images/notFound.json";
+
+interface NotfoundPropsType {
+  message?: string;
+  children?: ReactNode;
+}
+
+const NotFound = ({ message, children }: NotfoundPropsType) => {
   return (
     <div className="w-full  gap-10 flex-col flex items-center justify-center min-h-[85.3dvh]">
       <div className="text-2xl font-bold">{message}</div>

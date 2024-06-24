@@ -1,12 +1,12 @@
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { IoMoonOutline, IoMoonSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import { useSettings } from "../context";
-import DropDown from "./DropDown";
-import { languages } from "../constants";
+
+import { useDarkMode } from "@/context/DarkModeContext";
+import Language from "@/components/country/Language";
 
 const Navbar = () => {
-  const { isDarkMode, toggleDarkMode, changeLanguage } = useSettings();
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const { t, i18n } = useTranslation();
 
   return (
@@ -31,11 +31,7 @@ const Navbar = () => {
             )}
             <span className="sm:font-medium">{t("darkMode")}</span>
           </button>
-          <DropDown
-            options={languages}
-            handleChange={changeLanguage}
-            placeholder={i18n.language === "en" ? "English" : "العربية"}
-          />
+          <Language />
         </div>
       </div>
     </nav>
