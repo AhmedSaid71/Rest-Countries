@@ -23,5 +23,6 @@
   "currencies": "Currencies",
   "goBack": "Back",
   "welcomeMessage": "Welcome!",
-  "login": "Login"
+  "login": "Login",
+  "profile": "Profile"
 }

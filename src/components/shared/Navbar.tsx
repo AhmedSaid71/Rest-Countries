@@ -3,13 +3,12 @@ import { useTranslation } from "react-i18next";
 
 import Test from "./Drawer";
 import { Button } from "antd";
-import { useUserContext } from "@/context/AuthContext";
+import { useUserContext } from "@/context/UserContext";
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { user } = useUserContext();
-  console.log("user", user);
   const handleLoginClick = () => {
     navigate("/register");
   };
@@ -25,13 +24,16 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex gap-4 items-center">
-          <Button
-            className="bg-transparent dark:text-white text-base"
-            onClick={handleLoginClick}
-          >
-            {user ? user.name : t("login")}
-            {}
-          </Button>
+          {user ? (
+            user.name
+          ) : (
+            <Button
+              className="bg-transparent dark:text-white text-base"
+              onClick={handleLoginClick}
+            >
+              Login
+            </Button>
+          )}
           <Test />
         </div>
       </div>

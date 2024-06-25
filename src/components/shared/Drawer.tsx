@@ -1,22 +1,20 @@
 import { useState } from "react";
-import { Drawer } from "antd";
+import { Button, Drawer } from "antd";
 import { IoMenuOutline, IoMoonOutline, IoMoonSharp } from "react-icons/io5";
 import { useDarkMode } from "@/context/DarkModeContext";
 import { useTranslation } from "react-i18next";
 import Language from "../country/Language";
+import { useNavigate } from "react-router-dom";
 
 const Test = () => {
   const [open, setOpen] = useState(false);
   const { isDarkMode, toggleDarkMode } = useDarkMode();
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+  const showDrawer = () => setOpen(true);
+  const onClose = () => setOpen(false);
 
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
+  const handleGoProfile = () => navigate("/profile");
   return (
     <>
       <IoMenuOutline
@@ -30,7 +28,6 @@ const Test = () => {
         className="dark:bg-dark-blue dark:text-white"
         placement={i18n.language === "ar" ? "right" : "left"}
         style={{ direction: i18n.language === "ar" ? "rtl" : "ltr" }}
-        
       >
         <div className="flex gap-4 flex-col">
           <button
@@ -46,6 +43,14 @@ const Test = () => {
             <span className="sm:font-medium">{t("darkMode")}</span>
           </button>
           <Language />
+          <div className="dark:text-white">
+            <Button
+              onClick={handleGoProfile}
+              className="bg-transparent dark:text-white"
+            >
+              {t("profile")}
+            </Button>
+          </div>
         </div>
       </Drawer>
     </>

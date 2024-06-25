@@ -1,4 +1,5 @@
-import { useUserContext } from "@/context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
+import { useUserContext } from "@/context/UserContext";
 import { UserType } from "@/types/user";
 import { AUTH_API } from "@/utils/axiosInstance";
 import { useMutation } from "@tanstack/react-query";
@@ -17,10 +18,12 @@ const getUser = async (): Promise<getUserType> => {
 
 export const useGetUser = () => {
   const { setUserData } = useUserContext();
+  const { setAuthenticated } = useAuthContext();
   const { mutate: getUserData, isPending: isGetting } = useMutation({
     mutationFn: getUser,
     onSuccess: (data): void => {
       setUserData(data.data.user);
+      setAuthenticated();
     },
   });
   return { getUserData, isGetting };

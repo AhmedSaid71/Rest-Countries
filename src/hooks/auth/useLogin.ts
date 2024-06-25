@@ -1,4 +1,5 @@
-import { useUserContext } from "@/context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
+import { useUserContext } from "@/context/UserContext";
 import { UserType } from "@/types/user";
 import { AUTH_API } from "@/utils/axiosInstance";
 import { useMutation } from "@tanstack/react-query";
@@ -25,12 +26,14 @@ const loginRequest = async (data: DataType): Promise<LoginRequestType> => {
 
 export const useLogin = () => {
   const { setUserData } = useUserContext();
+  const { setAuthenticated } = useAuthContext();
 
   const { mutate: login, isPending } = useMutation({
     mutationFn: loginRequest,
     onSuccess: (data): void => {
       toast.success(data.message);
       setUserData(data.data.user);
+      setAuthenticated();
     },
     onError: (error): void => {
       toast.error(error.message);

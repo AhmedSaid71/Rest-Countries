@@ -6,7 +6,7 @@ import App from "./App";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { DarkModeProvider } from "./context/DarkModeContext";
 import { LanguageProvider } from "./context/LanguageContext";
-import { UserProvider } from "./context/AuthContext";
+import { UserProvider } from "./context/UserContext";
 
 import "@/styles/index.css";
 import "@/styles/button.css";
@@ -16,6 +16,7 @@ import "@/styles/pagination.css";
 import "@/styles/select.css";
 import "@/styles/drawer.css";
 import "@/styles/form.css";
+import { AuthProvider } from "./context/AuthContext";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +27,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <DarkModeProvider>
         <LanguageProvider>
           <UserProvider>
-            <App />
+            <AuthProvider>
+              <App />
+            </AuthProvider>
           </UserProvider>
         </LanguageProvider>
       </DarkModeProvider>

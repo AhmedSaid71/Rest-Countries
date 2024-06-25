@@ -7,6 +7,8 @@ import ErrorFallback from "@/components/shared/ErrorFallback";
 import MainLayout from "@/components/layouts/MainLayout";
 import { Toaster } from "react-hot-toast";
 import { useGetUser } from "./hooks/auth/useGetUser";
+import ProtectedRoutes from "./components/layouts/ProtectedRoutes";
+import Profile from "./routes/Profile";
 
 const Home = lazy(() => import("./routes/Home"));
 const Country = lazy(() => import("./routes/Country"));
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
     ],
     errorElement: <ErrorFallback />,
+  },
+  {
+    element: (
+      <Suspense fallback={<Loader />}>
+        <ProtectedRoutes />
+      </Suspense>
+    ),
+    children: [{ path: "/profile", element: <Profile /> }],
   },
 ]);
 

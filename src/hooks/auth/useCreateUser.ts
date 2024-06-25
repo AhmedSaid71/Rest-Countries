@@ -1,4 +1,5 @@
-import { useUserContext } from "@/context/AuthContext";
+import { useAuthContext } from "@/context/AuthContext";
+import { useUserContext } from "@/context/UserContext";
 import { UserType } from "@/types/user";
 import { AUTH_API } from "@/utils/axiosInstance";
 import { useMutation } from "@tanstack/react-query";
@@ -29,6 +30,8 @@ export const createUserRequest = async (
 
 export const useCreateUser = () => {
   const { setUserData } = useUserContext();
+  const { setAuthenticated } = useAuthContext();
+
   const {
     mutate: createUser,
     isPending,
@@ -38,6 +41,7 @@ export const useCreateUser = () => {
     onSuccess: (data) => {
       toast.success(data.message);
       setUserData(data.data.user);
+      setAuthenticated();
     },
     onError: (error) => {
       toast.error(error.message);

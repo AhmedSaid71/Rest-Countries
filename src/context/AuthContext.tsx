@@ -1,32 +1,37 @@
-import { UserType } from "@/types/user";
 import { ReactNode, createContext, useContext, useState } from "react";
 
-interface UserContextType {
-  user: UserType | null;
-  setUserData: (data: UserType) => void;
+interface AuthContextType {
+  isAuthenticated: boolean;
+  setAuthenticated: () => void;
+  setIsNotAuthenticated: () => void;
 }
-const UserContext = createContext<UserContextType | undefined>(undefined);
-
-interface UserProviderType {
+interface AuthProviderType {
   children: ReactNode;
 }
-const UserProvider = ({ children }: UserProviderType) => {
-  const [user, setUser] = useState<UserType | null>(null);
-  const setUserData = (data: UserType) => {
-    setUser(data);
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+const AuthProvider = ({ children }: AuthProviderType) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const setAuthenticated = () => {
+    setIsAuthenticated(true);
+  };
+  const setIsNotAuthenticated = () => {
+    setIsAuthenticated(false);
   };
   return (
-    <UserContext.Provider value={{ user, setUserData }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, setAuthenticated, setIsNotAuthenticated }}
+    >
       {children}
-    </UserContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
-const useUserContext = () => {
-  const context = useContext(UserContext);
+const useAuthContext = () => {
+  const context = useContext(AuthContext);
   if (context === undefined)
     throw new Error("AuthContext was used outside of AuthProvider");
   return context;
 };
 
-export { UserProvider, useUserContext };
+export { AuthProvider, useAuthContext };
