@@ -21,5 +21,7 @@
   "languages": "اللغات",
   "borderCountries": "البلدان الحدودية",
   "currencies": "العملات",
-  "goBack": "رجوع"
+  "goBack": "رجوع",
+  "welcomeMessage": "مرحبا!",
+  "login": "تسجيل دخول"
 }

@@ -21,5 +21,7 @@
   "languages": "Languages",
   "borderCountries": "Border Countries",
   "currencies": "Currencies",
-  "goBack": "Back"
+  "goBack": "Back",
+  "welcomeMessage": "Welcome!",
+  "login": "Login"
 }

@@ -4,7 +4,7 @@
 
 :root {
   --dark-blue: #fff;
-  --dark-blue-200: #e6e4e4;
+  --dark-blue-200: hsl(0, 0%, 98%);
   &.dark {
     --dark-blue: hsl(209, 23%, 22%);
     --dark-blue-200: hsl(210, 25%, 30%);
